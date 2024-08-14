@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>My HTML 1.0 page</title>
+    </head>
+    <body>
+        <h1>Welcome to my webpage</h1>
+        <p>This is a simple webpage created using html 1.0.</p>
+
+        <h2>How to make tea.</h2>
+        <ol>
+            <li>Boil water</li>
+            <li>Add tea leaves</li>
+            <li>let it sleep for a few minutes</li>
+            <li>Strain and serve</li>
+        </ol>
+
+        <h2>My favorites books</h2>
+        <ul> 
+            <li>The Great Gatsby</li>
+            <li>The Catcher in the Rye</li>
+            <li>The Alchemist</li>
+            
+        </ul>
+
+    </body>
