@@ -122,3 +122,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login'  # This tells Django to redirect to the 'login' named URL in your urls.py
+LOGIN_REDIRECT_URL = 'home'  # After login, redirect to the home page
+

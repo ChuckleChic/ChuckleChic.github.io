@@ -1,40 +1,100 @@
-from django.shortcuts import render, redirect
-from .models import DiaryEntry, SuggestedContent
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from .forms import DiaryEntryForm
+from .models import DiaryEntry
+from textblob import TextBlob
 from django.contrib.auth.decorators import login_required
-from .ml_model import analyze_sentiment, generate_suggestions  # custom ML functions
 
+from .models import DiaryEntry
 
+# Home Page
+@login_required
 def home(request):
-    return render(request, 'home.html')  # You can create a home.html template or return any content here
+    entries = DiaryEntry.objects.all().order_by('-created_at')  # Sort entries by created_at
+    return render(request, 'myapp/home.html', {'entries': entries})
 
-# View to add a diary entry
+
+# User Login View
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        # Authenticate the user
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('home')  # Redirect to homepage after successful login
+        else:
+            # If user doesn't exist, display error and suggest registration
+            messages.error(request, "User does not exist. Please register first.")
+            return render(request, 'myapp/login.html')
+
+    return render(request, 'myapp/login.html')
+
+# User Registration View
+def user_register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the new user
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request, user)  # Log the user in automatically after registration
+            
+            # Display success message
+            messages.success(request, "Registration successful! You are now logged in.")
+            
+            return redirect('home')  # Redirect to homepage after successful registration
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'myapp/register.html', {'form': form})
+
+# Add Diary Entry
 @login_required
 def add_entry(request):
-    if request.method == "POST":
-        content = request.POST.get('content')
-        
-        # Save the diary entry
-        entry = DiaryEntry.objects.create(user=request.user, content=content)
-        
-        # Analyze sentiment and update the entry
-        sentiment = analyze_sentiment(content)
-        entry.sentiment = sentiment
-        entry.save()
+    if request.method == 'POST':
+        form = DiaryEntryForm(request.POST)
+        if form.is_valid():
+            content = form.cleaned_data['content']
+            
+            # Perform sentiment analysis using TextBlob
+            blob = TextBlob(content)
+            sentiment = 'Positive' if blob.sentiment.polarity > 0 else 'Negative' if blob.sentiment.polarity < 0 else 'Neutral'
 
-        # Generate content suggestions based on sentiment
-        suggestions = generate_suggestions(sentiment)
-        
-        # Save the suggestions
-        for suggestion in suggestions:
-            SuggestedContent.objects.create(diary_entry=entry, suggestion=suggestion)
+            # Create and save the diary entry
+            entry = form.save(commit=False)
+            entry.user = request.user
+            entry.sentiment = sentiment  # Save the sentiment analysis result
+            entry.save()
+            
+            return redirect('home')  # Redirect to homepage after saving
+    else:
+        form = DiaryEntryForm()
+    
+    return render(request, 'myapp/add_entry.html', {'form': form})
 
-        return redirect('entry_detail', entry_id=entry.id)
-
-    return render(request, 'add_entry.html')
-
-# View to display the diary entry and suggestions
-@login_required
+# Viewing individual diary entry details
 def entry_detail(request, entry_id):
-    entry = DiaryEntry.objects.get(id=entry_id)
-    return render(request, 'entry_detail.html', {'entry': entry})
+    entry = get_object_or_404(DiaryEntry, id=entry_id)
+    return render(request, 'myapp/entry_detail.html', {'entry': entry})
 
+
+from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
+from django.shortcuts import render
+
+class CustomLoginView(LoginView):
+    template_name = 'myapp/login.html'  # Specify your template here
+
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')  # Redirect to the homepage or any other page after logout

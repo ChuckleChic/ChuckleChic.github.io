@@ -1,18 +1,17 @@
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
 class DiaryEntry(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
     content = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-    sentiment = models.CharField(max_length=50, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(default=datetime.date.today)  # Add the date field if needed
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Entry by {self.user.username} on {self.date}"
+        return self.title
 
-class SuggestedContent(models.Model):
-    diary_entry = models.ForeignKey(DiaryEntry, on_delete=models.CASCADE)
-    suggestion = models.TextField()
 
-    def __str__(self):
-        return f"Suggestion for Entry {self.diary_entry.id}"
+
+
