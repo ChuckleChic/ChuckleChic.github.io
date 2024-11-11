@@ -3,6 +3,10 @@ from .models import DiaryEntry, SuggestedContent
 from django.contrib.auth.decorators import login_required
 from .ml_model import analyze_sentiment, generate_suggestions  # custom ML functions
 
+
+def home(request):
+    return render(request, 'home.html')  # You can create a home.html template or return any content here
+
 # View to add a diary entry
 @login_required
 def add_entry(request):
