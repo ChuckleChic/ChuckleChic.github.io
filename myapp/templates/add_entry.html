@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Diary Entry</title>
+</head>
+<body>
+    <h2>Write your daily reflection</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="content" rows="8" cols="50" placeholder="Write here..."></textarea><br>
+        <button type="submit">Save Entry</button>
+    </form>
+</body>
+</html>

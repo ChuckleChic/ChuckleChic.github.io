@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Diary Entry Details</title>
+</head>
+<body>
+    <h2>Your Entry</h2>
+    <p>{{ entry.content }}</p>
+    <h3>Suggested Content</h3>
+    <ul>
+        {% for suggestion in entry.suggestedcontent_set.all %}
+            <li>{{ suggestion.suggestion }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
