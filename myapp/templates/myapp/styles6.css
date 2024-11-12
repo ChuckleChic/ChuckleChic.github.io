@@ -1,0 +1,116 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Container for Registration Form */
+form {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #5a5a5a;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Form Fields */
+form p {
+    margin-bottom: 1rem;
+}
+
+form label {
+    font-size: 1rem;
+    color: #555;
+    display: block;
+    margin-bottom: 0.4rem;
+    text-align: left;
+}
+
+form input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* Register Button */
+button[type="submit"] {
+    background-color: #4a90e2;
+    color: #ffffff;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* Messages */
+.messages {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.message {
+    background-color: #ffdddd;
+    color: #d9534f;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+/* Link to Login */
+p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 1.5rem;
+}
+
+p a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
