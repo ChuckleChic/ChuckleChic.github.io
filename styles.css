@@ -1,0 +1,182 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    cursor: grabbing;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: #1f1f1f;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffaf02;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hero Section Styling */
+.hero {
+    background-color: #ffaf02;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #1f1f1f;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-btn {
+    padding: 0.8rem 2rem;
+    background-color: #1f1f1f;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+/* Features Slider Section */
+.features-slider {
+    position: relative;
+    padding: 3rem 2rem;
+    background-color: #f3f3f3;
+    text-align: center;
+    overflow: hidden;
+}
+
+.features-slider h2 {
+    font-size: 2rem;
+    color: #1f1f1f;
+    margin-bottom: 1rem;
+}
+
+.features-container {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.4s ease-in-out;
+}
+
+.feature {
+    min-width: 300px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.feature p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Slider Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.5rem;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+/* CTA Section */
+.cta {
+    background-color: #1f1f1f;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-btn {
+    padding: 0.8rem 2rem;
+    background-color: #ffaf02;
+    color: #1f1f1f;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Custom Font for Emojis */
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('https://k2go-lambda-alfred.s3.eu-central-1.amazonaws.com/fonts/emojione-android.ttf');
+    font-display: block;
+}
+
+.emoji-text {
+    font-family: MyWebFont;
+    font-size: 32px;
+}
