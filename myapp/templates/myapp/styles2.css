@@ -1,0 +1,99 @@
+/* Body Styling */
+body {
+    background-color: #f1f5f9;
+    font-family: 'Arial', sans-serif;
+    color: #343a40;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #212529;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffdd57 !important;
+}
+
+.navbar-nav .nav-link {
+    color: #f8f9fa !important;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffdd57 !important;
+}
+
+/* Main Container */
+.container {
+    margin-top: 40px;
+    padding: 20px;
+    max-width: 800px;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #ffdd57;
+    color: #212529;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    background-color: #ffffff;
+    color: #495057;
+    padding: 20px;
+}
+
+.card-title {
+    color: #343a40;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #ffdd57;
+    color: #212529;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ffcc33;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.15);
+}
