@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodMate Website</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+            cursor: grabbing;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 3rem;
+            background-color: #1f1f1f;
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffaf02;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            background-color: #ffaf02;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #1f1f1f;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-btn {
+            padding: 0.8rem 2rem;
+            background-color: #1f1f1f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            border-radius: 5px;
+        }
+
+        /* Features Slider Section */
+        .features-slider {
+            position: relative;
+            padding: 3rem 2rem;
+            background-color: #f3f3f3;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .features-slider h2 {
+            font-size: 2rem;
+            color: #1f1f1f;
+            margin-bottom: 1rem;
+        }
+
+        .features-container {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .feature {
+            min-width: 300px;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Slider Buttons */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 1rem;
+            font-size: 1.5rem;
+            z-index: 1;
+            border-radius: 50%;
+        }
+
+        .slider-btn.prev {
+            left: 10px;
+        }
+
+        .slider-btn.next {
+            right: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: #1f1f1f;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-btn {
+            padding: 0.8rem 2rem;
+            background-color: #ffaf02;
+            color: #1f1f1f;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            border-radius: 5px;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #1f1f1f;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+.emoji {
+            width: 100px;
+            height: 100px;
+            background-color: #f0c419;
+            border-radius: 50%;
+            position: relative;
+            margin: 50px auto;
+        }
+        .eye {
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 30px;
+        }
+        .eye.left {
+            left: 30px;
+        }
+        .eye.right {
+            right: 30px;
+        }
+        .mouth {
+            width: 50px;
+            height: 20px;
+            border: 5px solid #000;
+            border-radius: 0 0 50px 50px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">MoodMate</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Ola Amigo! How are you today?</h1>
+        <p>Tell me about your day.</p>
+        <button class="hero-btn" onclick="startNow()">Pen it down!</button>
+    </section>
+
+    <!-- Features Slider Section -->
+    <section class="features-slider">
+         <div class="emoji">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+    </div>
+        <h2>Your Daily Mood Chart</h2>
+        <button class="slider-btn prev" onclick="slideFeatures(-1)">❮</button>
+        <button class="slider-btn next" onclick="slideFeatures(1)">❯</button>
+        
+        <div class="features-container" id="features-container">
+            <div class="feature">
+                <h3>Sunday</h3>
+                <p>"I am happy and sad too... the weekend is getting over!!! "</p>
+            </div>
+            <div class="feature">
+                <h3>Monday</h3>
+                <p>"My favourite cheesecake expired today!"</p>
+            </div>
+            <div class="feature">
+                <h3>Tuesday</h3>
+                <p>"I am happy as my project is well executed."</p>
+            </div>
+
+            <div class="feature">
+                <h3>Wednesday</h3>
+                <p>"Due to yesterday, I overslept and missed my piano lesson :/"</p>
+            </div>
+        </div>
+    </section>
+ 
+<head lang="nl-NL">
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,minimum-scale=1"
+        />
+        <style>
+            @font-face {
+                font-family: 'MyWebFont';
+                src: url('https://k2go-lambda-alfred.s3.eu-central-1.amazonaws.com/fonts/emojione-android.ttf');
+              font-display: block;
+            }
+        </style>
+    </head>
+    <body>
+       <center><h2>Already registered moods so far....register yours today!!</h2></center>
+       <br></br>
+        <p style="font-family: MyWebFont; font-size: 32px;">
+            😂😍
+            🤣😊🙏💕😭😘👍😅👏😁🔥💔😢🤔😆🙄💪😉👌🤗😔😎😇🌹🤦🎉💞🤷😱😌🌸🙌😋💗😏🙂🤩😄😀😃💯🙈👇🎶😒🤭❗😜👀😪😑💥🙋😞😩
+            😡🤪👊😥🤤👉😳✋😚😝😴😬🙃😻😓⭐✅🤘 ✔️😣🏃💐
+            🎊💘😠😕🌺🎂🌻😐💝🙊😹💫👑🎵🤞😛😤😫⚽🏆🧡 🎁⚡🌞🎈❌✊👋😲🌿🤫
+            👈😮🙆🍻🐶💁😰🤨😶🤝🚶💰🍓🤟🙁🚨💨🤬✈️🎀🍺🤓😙😖👶❓💎💸😨😷🕺😟😵👎🤲🤠🤧......<br></br>
+        </p>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta">
+        <h2>Ready to Take Control of Your Mood?</h2>
+        <p>Join millions of users making your voice heard with MoodMate.</p>
+        <button class="cta-btn" onclick="joinNow()">Join Now</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2024 MoodMate official. All rights reserved.
+    </footer>
+
+    <script>
+        // Functions for "Get Started" and "Join Now" buttons
+        function startNow() {
+            alert("Get started with MoodMate!");
+        }
+
+        function joinNow() {
+            alert("Welcome to MoodMate!");
+        }
+
+        // Slider functionality for the features section
+        let currentSlide = 0;
+
+        function slideFeatures(direction) {
+            const container = document.getElementById('features-container');
+            const slides = container.children;
+            const slideWidth = slides[0].offsetWidth + 32; // Adding gap of 32px
+
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+
+            container.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        }
+    </script>
+</body>
+</html>
