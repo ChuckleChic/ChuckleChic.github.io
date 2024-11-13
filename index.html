@@ -6,7 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MoodMate</title>
     <style>
-        /* CSS Styling Here */
+        /* Your original styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            width: 400px;
+            padding: 20px;
+            background: white;
+            margin: 100px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .messages {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -15,7 +86,6 @@
         <h2>Login to MoodMate</h2>
 
         <form method="post">
-            <!-- Replace this form action with your own static solution -->
             <div>
                 <label for="username">Username</label>
                 <input type="text" name="username" required>
@@ -29,8 +99,7 @@
 
         <!-- Static message section -->
         <ul class="messages">
-            <!-- Manually add example messages here if needed -->
-            <li class="message">Example message here</li>
+            <li class="message">This is a sample message</li>
         </ul>
 
         <p>Don't have an account? <a href="register.html">Register here</a></p>
