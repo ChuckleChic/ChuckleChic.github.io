@@ -1,0 +1,38 @@
+/* styles2.css */
+
+.container {
+    background-color: #fff3e0; /* Light cream */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background-color: #ffecb3; /* Light yellow for a sunny vibe */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.navbar {
+    background: linear-gradient(90deg, #ffcc80, #ffab40);
+}
+
+.navbar-brand {
+    color: #ff6f00 !important; /* Dark orange */
+}
+
+.nav-item .nav-link.active {
+    background-color: #ff8f00; /* Deep orange */
+    border-radius: 5px;
+}
+
+.footer {
+    background-color: #ffab40; /* Orange footer */
+    color: #ffffff;
+}

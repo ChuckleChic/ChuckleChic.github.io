@@ -3,18 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary App</title>
+    <title>MoodMate</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles2.css">
     <style>
-        body { background-color: #f8f9fa; }
-        .navbar { margin-bottom: 20px; }
-        .container { margin-top: 20px; }
-        .card { margin-bottom: 20px; }
+        body {
+            background-color: #fff8e1; /* Soft yellow background */
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background: linear-gradient(90deg, #ffcc80, #ffab40); /* Light orange gradient */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            color: #ff6f00 !important; /* Darker orange for emphasis */
+        }
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            color: #ffe0b2 !important; /* Light cream for links */
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffffff !important;
+        }
+        .container {
+            max-width: 900px;
+            background-color: #fff3e0; /* Light cream container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #ffecb3; /* Light yellow for card */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffab40; /* Medium orange for footer */
+            color: #ffffff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Diary App</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">MoodMate</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,6 +80,9 @@
     <div class="container">
         {% block content %}
         {% endblock %}
+    </div>
+    <div class="footer">
+        <p>© 2024 MoodMate | Your emotional Friend-in-need</p>
     </div>
 </body>
 </html>

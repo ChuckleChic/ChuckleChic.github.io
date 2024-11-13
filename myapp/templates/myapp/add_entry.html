@@ -3,22 +3,98 @@
 <head>
     <link rel="stylesheet" href="styles1.css">
     <title>Add Diary Entry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styling for the page */
+        body {
+            background: linear-gradient(to right, #FFD700, #FF6347); /* Warm gradient */
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+            background: transparent;
+            color: #fff;
+            transition: 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #FF6347;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn {
+            background-color: #FF6347;
+            color: #fff;
+            font-size: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #FFD700;
+            color: #000;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Write your daily reflection</h2>
-    
-    {% extends 'myapp/base_generic.html' %}
 
-{% block content %}
-    <h2>Add a New Diary Entry</h2>
+    <div class="container">
+        <h2>Add a New Diary Entry</h2>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-{% endblock %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
 
-    
+    <div class="footer">
+        <p>Stay positive, stay creative! ✨</p>
+    </div>
+
 </body>
 </html>

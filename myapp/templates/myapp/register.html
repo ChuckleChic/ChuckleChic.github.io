@@ -5,30 +5,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styling for the page */
+        body {
+            background: linear-gradient(to right, #FFB74D, #FF7043); /* Warm gradient background */
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: #FFF5E1; /* Light peach background */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 2px solid #FFB74D;
+            background: transparent;
+            color: #333;
+            transition: 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #FF7043;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        button {
+            background-color: #FF7043;
+            color: #fff;
+            font-size: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #FFB74D;
+            color: #333;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .messages {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #FFD27F;
+            border-radius: 10px;
+            color: #333;
+            list-style: none;
+        }
+
+        .messages .message {
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #FFD27F;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: #FF7043;
+        }
+    </style>
 </head>
 <body>
     {% extends 'base_generic.html' %}
 
     {% block content %}
-      <h2>Register</h2>
+        <div class="container">
+            <h2>Register</h2>
     
-      <form method="post">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Register</button>
-      </form>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Register</button>
+            </form>
     
-      {% if messages %}
-          <ul class="messages">
-              {% for message in messages %}
-                  <li class="message">{{ message }}</li>
-              {% endfor %}
-          </ul>
-      {% endif %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="message">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
     
-      <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+
+        <div class="footer">
+            <p>Join the MoodMate family! ✨</p>
+        </div>
     {% endblock %}
-    
 </body>
 </html>
-
